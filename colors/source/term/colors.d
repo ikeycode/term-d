@@ -66,6 +66,30 @@ public enum ANSIColor : ubyte
 }
 
 /** 
+ * ANSI cell display attributes
+ */
+public enum ANSIAttribute : ubyte
+{
+    reset = 0,          /// Reset all attributes,
+    bold = 1,           /// Enable bold
+    dim = 2,            /// Faint rendering
+    italic = 3,         /// Italic text, not widely supported
+    underline = 4,      /// Underlined, not widely supported
+    blink = 5,          /// Slow blinking text
+    reverse = 7,        /// invert fg + bg colors
+    hidden = 8,         /// Hidden text (just use space or star..)
+    strikeThrough = 9,  /// Crossed out text
+
+    resetBold = 21,     /// turn off bold
+    resetDim = 22,      /// turn off dim/faint
+    resetItalic = 23,   /// turn off italics
+    resetUnderline = 24,/// turn off underline
+    resetBlink = 25,    /// stop blinking pls.
+    resetReverse= 27,   /// invert the inverse
+    resetHidden = 28,   /// show me!
+}
+
+/** 
  * Contraint for triplet matching
  *
  * Params:
