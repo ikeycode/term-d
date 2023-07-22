@@ -7,10 +7,11 @@
 /**
  * term
  *
- * Module level imports
+ * The terminal UI library for D
  *
- * Authors: Copyright © 2023 Serpent OS Developers
+ * Authors: Serpent OS Developers
  * License: Zlib
+ * Copyright: © 2023 Serpent OS Developers
  */
 
 module term;

@@ -9,8 +9,12 @@
  *
  * Support for terminal colour definitions
  *
- * Authors: Copyright © 2023 Serpent OS Developers
+ * This module provides the [Color] type, as well as some accessor methods
+ * for working with ANSI + RGB colors for terminal user interfaces.
+ *
+ * Authors: Serpent OS Developers
  * License: Zlib
+ * Copyright: © 2023 Serpent OS Developers
  */
 
 module term.colors;
@@ -25,16 +29,19 @@ import std.array : array;
 /** 
  * Modifiers to the standard set
  */
-enum ANSIColorModifier : ubyte
+public enum ANSIColorModifier : ubyte
 {
+    /** This is a background color */
     background = 10,
+
+    /** This is a bright color */
     bright = 60
 }
 
 /** 
  * Convenient mapping of the ANSI colors
  */
-enum ANSIColor : ubyte
+public enum ANSIColor : ubyte
 {
     black = 30,
     red = 31,
@@ -49,7 +56,6 @@ enum ANSIColor : ubyte
     gray = black + ANSIColorModifier.bright,
     // Easy typo =P
     grey = gray,
-
     brightRed = red + ANSIColorModifier.bright,
     brightGreen = green + ANSIColorModifier.bright,
     brightYellow = yellow + ANSIColorModifier.bright,
@@ -57,7 +63,7 @@ enum ANSIColor : ubyte
     brightMagenta = magenta + ANSIColorModifier.bright,
     brightCyan = cyan + ANSIColorModifier.bright,
     brightWhite = white + ANSIColorModifier.bright,
-};
+}
 
 /** 
  * Contraint for triplet matching
@@ -77,7 +83,7 @@ template isValidHexTriplet(string hex)
  * Note: 3 bytes are supported for RGB, however we load as 4 bytes to
  * prevent unaligned access.
  */
-struct Color
+public struct Color
 {
     /** Raw buffer */
     ubyte[4] data;
@@ -198,7 +204,7 @@ struct Color
  *
  * Returns: new Color
  */
-auto color(string triplet)(ANSIColor fallback = ANSIColor.white) @nogc
+public auto color(string triplet)(ANSIColor fallback = ANSIColor.white) @nogc
         if (isValidHexTriplet!triplet)
 {
     static ubyte[4] cachedColor = (triplet ~ "00").drop(1).chunks(2)
@@ -213,7 +219,7 @@ auto color(string triplet)(ANSIColor fallback = ANSIColor.white) @nogc
  *   ansi = ANSI color
  * Returns: new Color
  */
-auto color(ANSIColor ansi) @nogc => Color(ansi);
+public auto color(ANSIColor ansi) @nogc => Color(ansi);
 
 @("Test the hex triplet conversion")
 @safe unittest

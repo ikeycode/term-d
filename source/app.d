@@ -9,8 +9,9 @@
  *
  * Test UI
  *
- * Authors: Copyright © 2023 Serpent OS Developers
+ * Authors: Serpent OS Developers
  * License: Zlib
+ * Copyright: © 2023 Serpent OS Developers
  */
 
 module app;
