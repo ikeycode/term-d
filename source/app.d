@@ -1,6 +1,21 @@
-import std.stdio;
+/*
+ * SPDX-FileCopyrightText: Copyright © 2020-2023 Serpent OS Developers
+ *
+ * SPDX-License-Identifier: Zlib
+ */
+
+/**
+ * app
+ *
+ * Test UI
+ *
+ * Authors: Copyright © 2020-2023 Serpent OS Developers
+ * License: Zlib
+ */
+
+module app;
 
 void main()
 {
-	writeln("Edit source/app.d to start your project.");
+    imported!"std.stdio".writeln("Go do something useful");
 }
