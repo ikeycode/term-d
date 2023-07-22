@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"Ikey Doherty"
+	],
+	"copyright": "Copyright © 2023, Ikey Doherty",
+	"description": "Grapheme aware TUI library",
+	"license": "Zlib",
+	"name": "term-d"
+}

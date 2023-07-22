@@ -1,0 +1,16 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/term-d
+term-d.so
+term-d.dylib
+term-d.dll
+term-d.a
+term-d.lib
+term-d-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
