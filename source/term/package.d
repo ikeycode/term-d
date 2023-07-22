@@ -15,3 +15,5 @@
  */
 
 module term;
+
+public import term.colors;
