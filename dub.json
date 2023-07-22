@@ -1,8 +1,8 @@
 {
 	"authors": [
-		"Ikey Doherty"
+		"Serpent OS Developers"
 	],
-	"copyright": "Copyright © 2023, Ikey Doherty",
+	"copyright": "Copyright © 2023, Serpent OS Developers",
 	"description": "Grapheme aware TUI library",
 	"license": "Zlib",
 	"name": "term-d"
