@@ -7,7 +7,8 @@
 	"license": "Zlib",
 	"name": "term-d",
 	"subPackages": [
-		"./colors/"
+		"./colors/",
+		"./geometry/"
 	],
 	"buildRequirements": [
 		"disallowDeprecations"
@@ -24,7 +25,8 @@
 			"name": "demo",
 			"targetType": "executable",
 			"dependencies": {
-				"term-d:colors" : "*"
+				"term-d:colors" : "*",
+				"term-d:geometry": "*"
 			}
 		},
 		{
@@ -34,7 +36,8 @@
 				"source"
 			],
 			"dependencies": {
-				"term-d:colors" : "*"
+				"term-d:colors" : "*",
+				"term-d:geometry": "*"
 			},
 			"excludedSourceFiles": [
 				"source/app.d"
@@ -44,7 +47,8 @@
 			"name": "unittest",
 			"sourcePaths": [
 				"source",
-				"colors"
+				"colors",
+				"geometry"
 			],
 			"excludedSourceFiles": [
 				"source/app.d"
