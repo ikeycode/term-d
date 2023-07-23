@@ -65,10 +65,7 @@ public struct Color
      */
     this(ubyte r, ubyte g, ubyte b, ANSIColor fallback = ANSIColor.white) @nogc
     {
-        data[0] = r;
-        data[1] = g;
-        data[2] = b;
-        data[3] = fallback;
+        data = [r, g, b, fallback];
     }
 
     /** 
@@ -79,7 +76,7 @@ public struct Color
      */
     this(ANSIColor ansi) @nogc
     {
-        data = 0;
+        data[0..3] = 0;
         data[3] = ansi;
     }
 
