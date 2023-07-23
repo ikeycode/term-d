@@ -63,7 +63,7 @@ public struct Color
      *   b = Blue value (0-255)
      *   fallback = ANSI fallback color
      */
-    this(ubyte r, ubyte g, ubyte b, ANSIColor fallback = ANSIColor.white) @nogc
+    this(ubyte r, ubyte g, ubyte b, ANSIColor fallback = ANSIColor.none) @nogc
     {
         data = [r, g, b, fallback];
     }
@@ -146,7 +146,7 @@ public struct Color
      *   data = Raw RGB values
      *   fallback = Fallback color
      */
-    package this(ubyte[4] data, ANSIColor fallback = ANSIColor.white) @safe @nogc
+    package this(ubyte[4] data, ANSIColor fallback = ANSIColor.none) @safe @nogc
     {
         this.data = data;
         data[3] = fallback;
@@ -164,7 +164,7 @@ public struct Color
  *
  * Returns: new Color
  */
-public auto color(string triplet)(ANSIColor fallback = ANSIColor.white) @nogc
+public auto color(string triplet)(ANSIColor fallback = ANSIColor.none) @nogc
         if (isValidHexTriplet!triplet)
 {
     static ubyte[4] cachedColor = (triplet ~ "00").drop(1).chunks(2)

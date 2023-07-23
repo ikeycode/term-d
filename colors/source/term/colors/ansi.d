@@ -33,6 +33,9 @@ public enum ANSIColorModifier : ubyte
  */
 public enum ANSIColor : ubyte
 {
+    /** No color requested */
+    none = 0,
+
     black = 30,
     red = 31,
     green = 32,
