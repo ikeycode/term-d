@@ -21,13 +21,24 @@
 	],
 	"configurations": [
 		{
+			"name": "demo",
+			"targetType": "executable",
+			"dependencies": {
+				"term-d:colors" : "*"
+			}
+		},
+		{
 			"name": "library",
+			"targetType": "autodetect",
 			"sourcePaths": [
 				"source"
 			],
 			"dependencies": {
 				"term-d:colors" : "*"
-			}
+			},
+			"excludedSourceFiles": [
+				"source/app.d"
+			]
 		},
 		{
 			"name": "unittest",
