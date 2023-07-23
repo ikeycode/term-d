@@ -9,6 +9,9 @@
 	"subPackages": [
 		"./colors/"
 	],
+	"buildRequirements": [
+		"disallowDeprecations"
+	],
 	"dflags": [
 		"-preview=dip1000",
 		"-preview=nosharedaccess",
