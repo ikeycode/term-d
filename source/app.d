@@ -16,7 +16,14 @@
 
 module app;
 
+import term.renderer;
+
 void main()
 {
-    imported!"std.stdio".writeln("Go do something useful");
+    auto renderer = new Renderer();
+    renderer.render();
+    scope (exit)
+    {
+        renderer.release();
+    }
 }

@@ -57,6 +57,14 @@ public final class Buffer
     }
 
     /** 
+     * Clear all data in the buffer
+     */
+    void clear() @nogc nothrow
+    {
+        memory[] = Cell.init;
+    }
+
+    /** 
      * Returns: Usable width
      */
     pure @property ulong width() => _width;
