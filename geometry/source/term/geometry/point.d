@@ -98,6 +98,18 @@ public struct PointType(I) if (isNumeric!I && !is(I == float) && !isBoolean!I)
     }
 
     /** 
+     * Perform op + assign (i.e. `*= value``)
+     * This relies on the Integral arrays builtin support
+     *
+     * Params:
+     *   value = Value to assign with op
+     */
+    void opOpAssign(string op, T)(T value) @nogc nothrow if (is(T : Integral))
+    {
+        mixin("data[] " ~ op ~ "= value;");
+    }
+
+    /** 
      * Returns: the Y value
      */
     pragma(inline, true) pure @property y() @nogc nothrow const => data[1];
@@ -105,9 +117,12 @@ public struct PointType(I) if (isNumeric!I && !is(I == float) && !isBoolean!I)
 
 @("Basic point usage") @safe unittest
 {
-    const p = Point(12, 14);
+    auto p = Point(12, 14);
     assert(p == [12, 14]);
     static assert(!__traits(compiles, PointType!bool));
     static assert(__traits(compiles, PointType!double));
     static assert(!__traits(compiles, PointType!float));
+
+    p *= 10;
+    assert(p == [120, 140]);
 }
