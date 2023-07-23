@@ -84,7 +84,7 @@ public final class Buffer
      *   width = New width for the buffer
      *   height = New height for the buffer
      */
-    void resize(ulong width, ulong height) @nogc nothrow
+    void resize(ulong width, ulong height) return @nogc nothrow
     {
         // No need to shrink the array
         _width = width;
@@ -137,7 +137,7 @@ private:
 
 @safe unittest
 {
-    auto b = new Buffer(1, 1);
+    scope b = new Buffer(1, 1);
     scope (exit)
         b.release();
     b.resize(5, 5);
