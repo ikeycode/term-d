@@ -3,9 +3,6 @@
 		"Serpent OS Developers"
 	],
 	"copyright": "Copyright © 2023, Serpent OS Developers",
-	"dependencies": {
-		"term-d:colors": "*"
-	},
 	"description": "Grapheme aware TUI library",
 	"license": "Zlib",
 	"name": "term-d",
@@ -13,6 +10,15 @@
 		"./colors/"
 	],
 	"configurations": [
+		{
+			"name": "library",
+			"sourcePaths": [
+				"source"
+			],
+			"dependencies": {
+				"term-d:colors" : "*"
+			}
+		},
 		{
 			"name": "unittest",
 			"sourcePaths": [
