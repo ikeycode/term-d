@@ -17,3 +17,4 @@
 module term.geometry;
 
 public import term.geometry.point;
+public import term.geometry.rectangle;
