@@ -112,7 +112,7 @@ public final class Buffer
     /** 
      * Release all resources
      */
-    void release() @nogc
+    void release() return @nogc
     {
         if (allocatedHeight < 0)
             return;
