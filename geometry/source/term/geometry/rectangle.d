@@ -161,6 +161,20 @@ public struct RectangleType(I) if (isNumeric!I && !is(I == float) && !isBoolean!
      * Returns: End point
      */
     pure @property auto ref end() @nogc nothrow => points[1];
+
+    /** 
+     * Perform op + assign (i.e. `*= value`) on *both* parts of the Rectangle
+     *
+     * This relies on the Integral arrays builtin support
+     *
+     * Params:
+     *   value = Value to assign with op
+     */
+    void opOpAssign(string op, T)(T value) @nogc nothrow if (is(T : Integral))
+    {
+        mixin("start " ~ op ~ "= value;");
+        mixin("end " ~ op ~ "= value;");
+    }
 }
 
 /** 
@@ -176,4 +190,7 @@ unittest
         .width(5).height(5);
 
     assert (r.end.x == 10);
+    r *= 2;
+    assert (r.end.x == 20);
+    assert (r.start.x == 10);
 }
