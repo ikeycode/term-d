@@ -44,7 +44,7 @@ public final class Buffer
      *   width = Required width
      *   height = Required height
      */
-    this(ulong width, ulong height) @nogc
+    this(ulong width, ulong height) @nogc nothrow
     {
         this._width = width;
         this._height = height;
@@ -68,8 +68,10 @@ public final class Buffer
 
     /** 
      * Restricted window into the currently visible buffer
+     *
+     * Returns: ubyte[] minimised to the visible region.
      */
-    auto opSlice() @nogc => memory[0 .. (_width * _height)];
+    auto opSlice() @nogc nothrow => memory[0 .. (_width * _height)];
 
     ~this() @nogc
     {
@@ -82,7 +84,7 @@ public final class Buffer
      *   width = New width for the buffer
      *   height = New height for the buffer
      */
-    void resize(ulong width, ulong height) @nogc
+    void resize(ulong width, ulong height) @nogc nothrow
     {
         // No need to shrink the array
         _width = width;
@@ -112,7 +114,7 @@ public final class Buffer
     /** 
      * Release all resources
      */
-    void release() return @nogc
+    void release() return @nogc nothrow
     {
         if (allocatedHeight < 0)
             return;
