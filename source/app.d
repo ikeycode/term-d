@@ -22,8 +22,21 @@ import term.widgets;
 void main()
 {
     auto renderer = new Renderer();
-    auto lab = new Text();
-    renderer.render(lab);
+
+    // dfmt off
+    auto root = column(
+        column(
+            text("col 1, row 1"),
+            text("col 1, row 2")
+        ),
+        column(
+            text("col 2, row 1"),
+            text("col 2, row 2")
+        )
+    );
+    // dfmt on
+
+    renderer.render(root);
     scope (exit)
     {
         renderer.release();

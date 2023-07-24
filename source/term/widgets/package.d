@@ -16,5 +16,6 @@
 
 module term.widgets;
 
+public import term.widgets.column;
 public import term.widgets.widget;
 public import term.widgets.text;
