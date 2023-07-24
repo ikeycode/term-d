@@ -17,5 +17,4 @@
 module term.widgets;
 
 public import term.widgets.widget;
-
-public import term.widgets.label;
+public import term.widgets.text;

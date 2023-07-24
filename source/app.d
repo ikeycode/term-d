@@ -22,7 +22,7 @@ import term.widgets;
 void main()
 {
     auto renderer = new Renderer();
-    auto lab = new Label();
+    auto lab = new Text();
     renderer.render(lab);
     scope (exit)
     {
