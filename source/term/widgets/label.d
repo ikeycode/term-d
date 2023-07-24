@@ -54,6 +54,10 @@ public class Label : Widget
         return this;
     }
 
+    override void draw()
+    {
+    }
+
 private:
 
     string _text;

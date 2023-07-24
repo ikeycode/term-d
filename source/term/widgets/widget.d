@@ -15,6 +15,7 @@
  */
 
 module term.widgets.widget;
+import term.geometry.rectangle;
 
 /**
  * All term-d widgets are derived from Widget in a
@@ -22,5 +23,8 @@ module term.widgets.widget;
  */
 public abstract class Widget
 {
-
+    /** 
+     * Request that this widget draw itself
+     */
+    abstract void draw();
 }
