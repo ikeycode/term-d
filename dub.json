@@ -15,7 +15,6 @@
 	],
 	"dflags": [
 		"-preview=dip1000",
-		"-preview=nosharedaccess",
 		"-preview=systemVariables",
 		"-preview=in",
 		"-preview=shortenedMethods"
