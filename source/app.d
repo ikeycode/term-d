@@ -17,11 +17,13 @@
 module app;
 
 import term.renderer;
+import term.widgets;
 
 void main()
 {
     auto renderer = new Renderer();
-    renderer.render();
+    auto lab = new Label();
+    renderer.render(lab);
     scope (exit)
     {
         renderer.release();

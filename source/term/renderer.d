@@ -19,6 +19,7 @@ module term.renderer;
 @safe:
 
 import term.buffer;
+import term.widgets.widget;
 
 /** 
  * The renderer holds the buffers to be drawn along with some
@@ -42,7 +43,7 @@ public final class Renderer
     /** 
      * Render using the given widget tree
      */
-    void render() @nogc
+    void render(scope Widget root) @nogc
     {
         // Nothing to render, nothing has changed
         if (backBuffer[] == frontBuffer[])
