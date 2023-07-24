@@ -27,6 +27,11 @@ import std.traits : CommonType;
 public class Column : Widget
 {
 
+    /** 
+     * Returns: The list of owned children
+     */
+    override Widget[] children() @nogc nothrow => widgets;
+
     override void draw()
     {
     }
@@ -41,7 +46,7 @@ public class Column : Widget
      */
     Column add(Widget w)
     {
-        children ~= w;
+        widgets ~= w;
         return this;
     }
 
@@ -56,13 +61,13 @@ public class Column : Widget
     {
         import std.algorithm : remove, SwapStrategy;
 
-        children = children.remove!(a => a == w)();
+        widgets = children.remove!(a => a == w)();
         return this;
     }
 
 private:
 
-    Widget[] children;
+    Widget[] widgets;
 }
 
 /** 
