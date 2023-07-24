@@ -81,6 +81,15 @@ public final class Buffer
      */
     auto opSlice() @nogc nothrow => memory[0 .. (_width * _height)];
 
+    /** 
+     * Grab a line in the buffer
+     *
+     * Params:
+     *   index = The line number
+     * Returns: A slice representating a slice using the current width constraint
+     */
+    auto line(ulong index) @nogc nothrow => memory[index * _width .. (index * _width) + _width];
+
     ~this() @nogc
     {
         release();
