@@ -63,3 +63,12 @@ private:
     string _text;
     ulong displayLength;
 }
+
+/** 
+ * Utility: Construct a new Text
+ *
+ * Params:
+ *   input = Input string for the text
+ * Returns: Newly allocated Text object
+ */
+public Text text(string input = null) @safe => new Text(input);
