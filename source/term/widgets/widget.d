@@ -19,6 +19,7 @@ module term.widgets.widget;
 @safe:
 
 import term.geometry.rectangle;
+import term.geometry.size;
 import std.algorithm : each;
 
 /**
@@ -36,6 +37,33 @@ public abstract class Widget
         // Default behaviour: Just ask children to draw, we're likely a
         // container.
         children.each!"a.draw()";
+    }
+
+    /**
+     * The widget is given a set of constraints from which it live.
+     *
+     * It must then pick an appropriate size between minimum/maximum
+     * and account for its children.
+     *
+     * Params:
+     *  minimum = Minimum space available
+     *  maximum = Maximum space available
+     * Returns: The chosen size.
+     */
+    Size constraints(const Size minimum, const Size maximum)
+    {
+        return maximum;
+    }
+
+    /**
+     * Notify this widget it should update itself using the picked size
+     * constraints.
+     *
+     * While implementations may not override this method, rendering will
+     * be clipped to prevent breakage.
+     */
+    void layout(const Size size)
+    {
     }
 
     /** 
