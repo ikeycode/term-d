@@ -19,6 +19,7 @@ module term.widgets.widget;
 @safe:
 
 import term.geometry.rectangle;
+import std.algorithm : each;
 
 /**
  * All term-d widgets are derived from Widget in a
@@ -28,8 +29,14 @@ public abstract class Widget
 {
     /** 
      * Request that this widget draw itself
+     * The implementation should pass this call onto any child widget
      */
-    abstract void draw();
+    void draw()
+    {
+        // Default behaviour: Just ask children to draw, we're likely a
+        // container.
+        children.each!"a.draw()";
+    }
 
     /** 
      * Container widgets can return the widgets they own here

@@ -32,10 +32,6 @@ public class Column : Widget
      */
     override Widget[] children() @nogc nothrow => widgets;
 
-    override void draw()
-    {
-    }
-
     /** 
      * Add a widget to this column
      *
